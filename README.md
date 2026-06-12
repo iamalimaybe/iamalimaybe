@@ -1,16 +1,28 @@
-## Hi there 👋
+## Featured Projects
 
-<!--
-**iamalimaybe/iamalimaybe** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+### Requirements Intelligence Assistant
 
-Here are some ideas to get you started:
+Validation-first local LLM workflow for grounded software requirement analysis.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+This project demonstrates a production-aware LLM pipeline where model output is treated as untrusted until it passes deterministic validation. It uses Ollama, trusted context JSON, JSON Schema validation, context-driven semantic validation, negative regression tests, multi-context regression, structured run reporting, and local model comparison.
+
+**Tech:** Python, Ollama, JSON Schema, local LLMs, validation pipelines, regression testing
+
+**Key engineering focus:**
+
+* Local LLM workflow using `qwen3:4b` and `qwen3:8b`
+* Trusted context JSON as the semantic source of truth
+* Prompt generation from structured requirement context
+* Malformed JSON repair fallback
+* Deterministic normalization and enrichment
+* JSON Schema validation
+* Context-driven semantic validation
+* Positive and negative regression tests
+* Multi-context validation across different requirement types
+* Structured run reports and run-report schema validation
+* Local model comparison runner
+
+**Positioning:**
+I built this to show how LLM output can be grounded, validated, tested, and accepted or rejected through deterministic engineering checks instead of trusting raw model responses.
+
+[View repository](https://github.com/iamalimaybe/requirements-intelligence-assistant)
