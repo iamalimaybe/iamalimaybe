@@ -2,27 +2,44 @@
 
 ### Requirements Intelligence Assistant
 
-Validation-first local LLM workflow for grounded software requirement analysis.
+A local LLM workflow for software requirement analysis where model output is treated as untrusted until it passes validation, semantic checks, regression tests, and structured run-report validation.
 
-This project demonstrates a production-aware LLM pipeline where model output is treated as untrusted until it passes deterministic validation. It uses Ollama, trusted context JSON, JSON Schema validation, context-driven semantic validation, negative regression tests, multi-context regression, structured run reporting, and local model comparison.
+This project shows practical AI-integrated engineering from a backend perspective. The focus is not model training or ML research. The focus is building reliable software workflows around LLMs.
 
-**Tech:** Python, Ollama, JSON Schema, local LLMs, validation pipelines, regression testing
+#### What it demonstrates
 
-**Key engineering focus:**
-
-* Local LLM workflow using `qwen3:4b` and `qwen3:8b`
-* Trusted context JSON as the semantic source of truth
-* Prompt generation from structured requirement context
-* Malformed JSON repair fallback
-* Deterministic normalization and enrichment
+* trusted context validation before prompt generation
+* local LLM execution through Ollama and Qwen3
+* structured JSON output handling
+* malformed JSON repair fallback
+* output normalization and enrichment from trusted context
 * JSON Schema validation
-* Context-driven semantic validation
-* Positive and negative regression tests
-* Multi-context validation across different requirement types
-* Structured run reports and run-report schema validation
-* Local model comparison runner
+* context-driven semantic validation
+* positive, negative, and multi-context regression tests
+* structured run reports with PASS/FAIL validation
 
-**Positioning:**
-I built this to show how LLM output can be grounded, validated, tested, and accepted or rejected through deterministic engineering checks instead of trusting raw model responses.
+#### Why it matters
+
+Many AI features work in demos but fail in real workflows because the output is not validated, tested, or tied back to trusted business context.
+
+This project demonstrates how LLM output can be used inside a controlled backend-style workflow where incorrect, incomplete, or unsupported results are detected before being accepted.
+
+#### Tested contexts
+
+* payment webhook integration
+* production report backend workflow
+* review moderation admin workflow
+
+#### Proof
+
+Release tag:
+
+`v0.1-validation-first-local-llm-workflow`
+
+Main demo command:
+
+`python .\scripts\run_demo_multi_context_workflow.py --model qwen3:4b`
+
+Repository:
 
 [View repository](https://github.com/iamalimaybe/requirements-intelligence-assistant)
