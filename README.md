@@ -1,5 +1,47 @@
 ## Featured Projects
 
+### AI Ticket Triage Service
+
+A Java/Spring Boot backend for structured support ticket triage with validated AI output, PostgreSQL persistence, auditability, and human review workflows.
+
+The service accepts support tickets, analyzes them using either deterministic logic or a local Ollama model, validates the structured analysis result, stores both raw and parsed output, and exposes APIs plus a lightweight React review console.
+
+This project shows how LLM output can be handled inside a backend system where correctness, persistence, and reviewability matter.
+
+#### What it demonstrates
+
+* Java 17 and Spring Boot backend API design
+* local LLM integration through Ollama and Qwen3
+* deterministic analyzer fallback for stable development and tests
+* structured AI output parsing and validation
+* raw model output storage for audit/debugging
+* PostgreSQL persistence with Liquibase migrations
+* confidence-based review decisioning
+* review status workflow with `NEEDS_REVIEW`, `REVIEWED`, and `NOT_REQUIRED`
+* consistent API error responses
+* Swagger/OpenAPI documentation
+* Docker Compose setup for app and PostgreSQL
+* lightweight React + TypeScript frontend review console
+* GitHub Actions CI for backend tests and frontend build
+
+#### Why it matters
+
+AI features are risky when model output is accepted directly.
+
+This project treats AI output as untrusted until it is parsed, validated, persisted, and routed through review rules when needed. The focus is not chatbot behavior. The focus is building production-aware backend workflows around AI output.
+
+#### Proof
+
+Release tag:
+
+`v0.3-frontend-review-console`
+
+Repository:
+
+[View repository](https://github.com/iamalimaybe/ai-ticket-triage-service)
+
+---
+
 ### Requirements Intelligence Assistant
 
 A local LLM workflow for software requirement analysis where model output is treated as untrusted until it passes validation, semantic checks, regression tests, and structured run-report validation.
