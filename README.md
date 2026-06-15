@@ -1,5 +1,64 @@
 ## Featured Projects
 
+### LLM Evaluation Registry
+
+A Java/Spring Boot backend quality layer for evaluating and comparing LLM workflow behavior across prompt versions, model providers, reusable evaluation cases, individual runs, and queued batch runs.
+
+The registry tracks workflows, prompt versions, test cases, model runs, raw outputs, parsed structured outputs, scoring results, batch progress, regression comparisons, and review notes so LLM behavior can be measured instead of guessed.
+
+It supports local Ollama execution, optional OpenAI provider execution, deterministic JSON parsing, scoring rules, single-run regression comparison, queued batch evaluation, batch cancellation, and batch-level regression comparison.
+
+This project shows how AI behavior can be tested, compared, persisted, and reviewed through backend engineering instead of relying on informal prompt testing.
+
+#### What it demonstrates
+
+* Java 17 and Spring Boot backend API design
+* PostgreSQL persistence with Liquibase migrations
+* provider-based model execution abstraction
+* local LLM execution through Ollama
+* optional OpenAI provider integration
+* controlled prompt execution for structured JSON output
+* raw model output capture
+* parsed JSON output storage
+* deterministic evaluation against expected fields, required facts, and forbidden claims
+* critical scoring rules for high-risk checks
+* single-run regression comparison
+* queued batch evaluation across enabled evaluation cases
+* batch progress tracking with pass/fail/error counts and average score
+* batch cancellation for queued and running batches
+* batch-level regression comparison with per-case differences
+* review notes and audit-friendly result storage
+* Swagger/OpenAPI documentation
+* Docker Compose setup for app and PostgreSQL
+* unit tests for evaluator, regression comparison, batch comparison, provider routing, Ollama client, and OpenAI client
+
+#### Why it matters
+
+Prompt and model changes can silently make an AI workflow worse.
+
+This project treats LLM behavior as something that should be measured, compared, and reviewed. The focus is not chatbot interaction. The focus is building a backend evaluation layer where AI output is captured, validated, scored, compared, and made auditable.
+
+#### Proof
+
+Latest release tag:
+
+`v0.6-openai-provider`
+
+Key completed releases:
+
+* `v0.1-registry-core`
+* `v0.2-model-execution-evaluation`
+* `v0.3-evaluator-scoring-rules`
+* `v0.4-queued-batch-evaluation`
+* `v0.5-batch-comparison`
+* `v0.6-openai-provider`
+
+Repository:
+
+[View repository](https://github.com/iamalimaybe/llm-evaluation-registry)
+
+---
+
 ### AI Ticket Triage Service
 
 A Java/Spring Boot backend for structured support ticket triage with validated AI output, PostgreSQL persistence, auditability, and human review workflows.
