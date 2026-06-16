@@ -1,12 +1,63 @@
 ## Featured Projects
 
+### RAG Document Assistant
+
+A Java/Spring Boot RAG backend with a thin React UI for grounded document question answering, citations, missing-info handling, QA run history, and audit visibility.
+
+The system uploads documents, extracts text, chunks content, generates local embeddings, stores vectors in PostgreSQL with pgvector, retrieves relevant chunks, budgets prompt context, calls a local LLM, validates structured output, and stores QA runs with retrieved evidence snapshots.
+
+This project shows how RAG can be built as an auditable backend workflow instead of a simple "chat with PDF" demo.
+
+#### What it demonstrates
+
+* Java 17 and Spring Boot backend API design
+* PostgreSQL persistence with pgvector and Liquibase migrations
+* document upload and text extraction for TXT, Markdown, and PDF
+* deterministic and structure-aware chunking strategies
+* local embedding generation with Ollama and `nomic-embed-text`
+* similarity retrieval over stored document chunks
+* retrieval context budgeting before prompt construction
+* local LLM answering with `qwen3:4b`
+* structured JSON model output parsing
+* citation validation against prompt context
+* explicit insufficient-context handling
+* persisted QA run history
+* raw prompt and raw model output storage for audit/debugging
+* retrieved chunk snapshots for answer traceability
+* thin React + TypeScript UI for upload, embedding, asking questions, citations, retrieved chunks, and QA run detail
+* Swagger/OpenAPI documentation
+* backend CI and frontend build CI
+* local smoke scripts for answerable and missing-info questions
+
+#### Why it matters
+
+RAG systems are risky when answers are accepted without evidence.
+
+This project separates retrieved chunks from cited chunks, validates model output, handles missing information honestly, and stores the evidence behind each answer. The focus is not a polished chat interface. The focus is building a backend RAG workflow where answers can be inspected, reviewed, and improved.
+
+#### Proof
+
+Latest release tag:
+
+`v0.3-thin-react-ui`
+
+Key completed releases:
+
+* `v0.1-backend-rag-flow`
+* `v0.2-rag-backend-refinements`
+* `v0.3-thin-react-ui`
+
+Repository:
+
+[View repository](https://github.com/iamalimaybe/rag-document-assistant)
+
+---
+
 ### LLM Evaluation Registry
 
 A Java/Spring Boot backend quality layer for evaluating and comparing LLM workflow behavior across prompt versions, model providers, reusable evaluation cases, individual runs, and queued batch runs.
 
 The registry tracks workflows, prompt versions, test cases, model runs, raw outputs, parsed structured outputs, scoring results, batch progress, regression comparisons, and review notes so LLM behavior can be measured instead of guessed.
-
-It supports local Ollama execution, optional OpenAI provider execution, deterministic JSON parsing, scoring rules, single-run regression comparison, queued batch evaluation, batch cancellation, and batch-level regression comparison.
 
 This project shows how AI behavior can be tested, compared, persisted, and reviewed through backend engineering instead of relying on informal prompt testing.
 
